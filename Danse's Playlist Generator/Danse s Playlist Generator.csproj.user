@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory>D:\User\Document\Playlist Danse Generator\|\\localhost\Users\Document\Playlist Danse Generator\|\\localhost\User\Document\Playlist Danse Generator\|\\localhost\User\Document\|D:\User\Document\</PublishUrlHistory>
+    <InstallUrlHistory>\\localhost\Users\Document\Playlist Danse Generator\|\\localhost\User\Document\Playlist Danse Generator\|\\localhost\User\Document\</InstallUrlHistory>
+    <SupportUrlHistory />
+    <UpdateUrlHistory />
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory />
+    <FallbackCulture>fr-FR</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
+</Project>
