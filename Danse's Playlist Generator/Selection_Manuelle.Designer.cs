@@ -58,6 +58,7 @@
             // 
             // cmb_Danses
             // 
+            this.cmb_Danses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Danses.FormattingEnabled = true;
             this.cmb_Danses.Location = new System.Drawing.Point(12, 34);
             this.cmb_Danses.Name = "cmb_Danses";
@@ -89,6 +90,7 @@
             // 
             // cmb_list_Ajout
             // 
+            this.cmb_list_Ajout.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_list_Ajout.FormattingEnabled = true;
             this.cmb_list_Ajout.Location = new System.Drawing.Point(226, 34);
             this.cmb_list_Ajout.Name = "cmb_list_Ajout";

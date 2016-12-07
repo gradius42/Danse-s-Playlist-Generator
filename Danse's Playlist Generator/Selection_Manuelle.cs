@@ -73,7 +73,7 @@ namespace Danse_s_Playlist_Generator
                     }
 
                 }
-                cmb_list_Ajout.Items.Add("Nouvelle");
+                cmb_list_Ajout.Items.Add("Nouvelle liste");
                 cmb_list_Ajout.SelectedIndex = cmb_list_Ajout.Items.Count - 1;
             }
             
@@ -95,7 +95,7 @@ namespace Danse_s_Playlist_Generator
                 if (Mode_Ouverture == 1)
                 {
                     int pos;
-                    if (cmb_list_Ajout.Text == "Nouvelle")
+                    if (cmb_list_Ajout.Text == "Nouvelle liste")
                         pos = -1;
                     else
                         pos = Int32.Parse(cmb_list_Ajout.Text.Substring(2));

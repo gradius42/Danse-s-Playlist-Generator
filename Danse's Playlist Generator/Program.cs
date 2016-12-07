@@ -215,7 +215,6 @@ namespace Danse_s_Playlist_Generator
             if (File.Exists("." + sep + "Application.config"))
             {
                 Application.Run(new Application_Fen());
-                //Application.Run(new Menu());
             }
 
         }

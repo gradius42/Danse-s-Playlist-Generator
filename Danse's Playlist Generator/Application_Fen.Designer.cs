@@ -37,12 +37,12 @@ namespace Danse_s_Playlist_Generator
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Application_Fen));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label16 = new System.Windows.Forms.Label();
@@ -217,10 +217,10 @@ namespace Danse_s_Playlist_Generator
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arimo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(563, 12);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(139, 17);
+            this.label16.Size = new System.Drawing.Size(139, 18);
             this.label16.TabIndex = 11;
             this.label16.Text = "Structure de fichier :";
             // 
@@ -235,7 +235,7 @@ namespace Danse_s_Playlist_Generator
             this.groupBox3.Controls.Add(this.lbl_music_f);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Font = new System.Drawing.Font("Arimo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(9, 85);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(529, 483);
@@ -248,7 +248,7 @@ namespace Danse_s_Playlist_Generator
             this.lbl_durée_musique.AutoSize = true;
             this.lbl_durée_musique.Location = new System.Drawing.Point(117, 205);
             this.lbl_durée_musique.Name = "lbl_durée_musique";
-            this.lbl_durée_musique.Size = new System.Drawing.Size(95, 17);
+            this.lbl_durée_musique.Size = new System.Drawing.Size(96, 18);
             this.lbl_durée_musique.TabIndex = 8;
             this.lbl_durée_musique.Text = "Durée totale :";
             // 
@@ -257,17 +257,17 @@ namespace Danse_s_Playlist_Generator
             this.lbl_playlist.AutoSize = true;
             this.lbl_playlist.Location = new System.Drawing.Point(117, 399);
             this.lbl_playlist.Name = "lbl_playlist";
-            this.lbl_playlist.Size = new System.Drawing.Size(149, 17);
+            this.lbl_playlist.Size = new System.Drawing.Size(149, 18);
             this.lbl_playlist.TabIndex = 7;
             this.lbl_playlist.Text = "playlist(s) générée(s).";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arimo", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(25, 348);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(62, 17);
+            this.label15.Size = new System.Drawing.Size(62, 18);
             this.label15.TabIndex = 6;
             this.label15.Text = "Playlist :";
             // 
@@ -276,7 +276,7 @@ namespace Danse_s_Playlist_Generator
             this.lbl_routine_f.AutoSize = true;
             this.lbl_routine_f.Location = new System.Drawing.Point(117, 297);
             this.lbl_routine_f.Name = "lbl_routine_f";
-            this.lbl_routine_f.Size = new System.Drawing.Size(225, 17);
+            this.lbl_routine_f.Size = new System.Drawing.Size(227, 18);
             this.lbl_routine_f.TabIndex = 5;
             this.lbl_routine_f.Text = "routine(s) de danse disponible(s).";
             // 
@@ -285,7 +285,7 @@ namespace Danse_s_Playlist_Generator
             this.lbl_danse_f.AutoSize = true;
             this.lbl_danse_f.Location = new System.Drawing.Point(117, 162);
             this.lbl_danse_f.Name = "lbl_danse_f";
-            this.lbl_danse_f.Size = new System.Drawing.Size(216, 17);
+            this.lbl_danse_f.Size = new System.Drawing.Size(216, 18);
             this.lbl_danse_f.TabIndex = 4;
             this.lbl_danse_f.Text = "style(s) de danse referencée(s).";
             // 
@@ -294,7 +294,7 @@ namespace Danse_s_Playlist_Generator
             this.lbl_music_f_r.AutoSize = true;
             this.lbl_music_f_r.Location = new System.Drawing.Point(117, 119);
             this.lbl_music_f_r.Name = "lbl_music_f_r";
-            this.lbl_music_f_r.Size = new System.Drawing.Size(240, 17);
+            this.lbl_music_f_r.Size = new System.Drawing.Size(241, 18);
             this.lbl_music_f_r.TabIndex = 3;
             this.lbl_music_f_r.Text = "musique(s) avec rythme trouvée(s).";
             // 
@@ -303,37 +303,37 @@ namespace Danse_s_Playlist_Generator
             this.lbl_music_f.AutoSize = true;
             this.lbl_music_f.Location = new System.Drawing.Point(117, 76);
             this.lbl_music_f.Name = "lbl_music_f";
-            this.lbl_music_f.Size = new System.Drawing.Size(156, 17);
+            this.lbl_music_f.Size = new System.Drawing.Size(157, 18);
             this.lbl_music_f.TabIndex = 2;
             this.lbl_music_f.Text = "musique(s) trouvée(s).";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arimo", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(25, 246);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 17);
+            this.label9.Size = new System.Drawing.Size(67, 18);
             this.label9.TabIndex = 1;
             this.label9.Text = "Routine :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arimo", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(25, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 17);
+            this.label2.Size = new System.Drawing.Size(72, 18);
             this.label2.TabIndex = 0;
             this.label2.Text = "Musique :";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arimo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(9, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 17);
+            this.label1.Size = new System.Drawing.Size(175, 18);
             this.label1.TabIndex = 9;
             this.label1.Text = "Repertoire de recherche :";
             // 
@@ -361,7 +361,7 @@ namespace Danse_s_Playlist_Generator
             // 
             // treeView1
             // 
-            this.treeView1.Font = new System.Drawing.Font("Arimo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeView1.Location = new System.Drawing.Point(563, 33);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(484, 535);
@@ -390,7 +390,7 @@ namespace Danse_s_Playlist_Generator
             this.grp_playlist.Controls.Add(this.label4);
             this.grp_playlist.Controls.Add(this.list_Musiques);
             this.grp_playlist.Controls.Add(this.label3);
-            this.grp_playlist.Font = new System.Drawing.Font("Arimo", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grp_playlist.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_playlist.Location = new System.Drawing.Point(2, 3);
             this.grp_playlist.Name = "grp_playlist";
             this.grp_playlist.Size = new System.Drawing.Size(1045, 561);
@@ -560,7 +560,7 @@ namespace Danse_s_Playlist_Generator
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(172, 26);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 16);
+            this.label8.Size = new System.Drawing.Size(66, 17);
             this.label8.TabIndex = 14;
             this.label8.Text = "Maximum";
             // 
@@ -569,7 +569,7 @@ namespace Danse_s_Playlist_Generator
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(20, 27);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 16);
+            this.label7.Size = new System.Drawing.Size(63, 17);
             this.label7.TabIndex = 13;
             this.label7.Text = "Minimum";
             // 
@@ -635,7 +635,7 @@ namespace Danse_s_Playlist_Generator
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(208, 18);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(134, 16);
+            this.label6.Size = new System.Drawing.Size(135, 17);
             this.label6.TabIndex = 8;
             this.label6.Text = "Nombre de musique";
             // 
@@ -644,12 +644,13 @@ namespace Danse_s_Playlist_Generator
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(47, 18);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 16);
+            this.label5.Size = new System.Drawing.Size(102, 17);
             this.label5.TabIndex = 7;
             this.label5.Text = "Style de danse";
             // 
             // cmb_Danses
             // 
+            this.cmb_Danses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Danses.FormattingEnabled = true;
             this.cmb_Danses.Location = new System.Drawing.Point(6, 41);
             this.cmb_Danses.Name = "cmb_Danses";
@@ -866,7 +867,7 @@ namespace Danse_s_Playlist_Generator
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(274, 119);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 16);
+            this.label4.Size = new System.Drawing.Size(95, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "Les musiques";
             // 
@@ -885,7 +886,7 @@ namespace Danse_s_Playlist_Generator
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 119);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 16);
+            this.label3.Size = new System.Drawing.Size(115, 17);
             this.label3.TabIndex = 1;
             this.label3.Text = "Liste des danses";
             // 
@@ -1024,7 +1025,7 @@ namespace Danse_s_Playlist_Generator
             this.grp_aj_d_r.Controls.Add(this.label17);
             this.grp_aj_d_r.Controls.Add(this.label18);
             this.grp_aj_d_r.Controls.Add(this.cmb_Danses_r);
-            this.grp_aj_d_r.Font = new System.Drawing.Font("Arimo", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grp_aj_d_r.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_aj_d_r.Location = new System.Drawing.Point(451, 6);
             this.grp_aj_d_r.Name = "grp_aj_d_r";
             this.grp_aj_d_r.Size = new System.Drawing.Size(596, 123);
@@ -1063,7 +1064,7 @@ namespace Danse_s_Playlist_Generator
             this.rdb_Aleatoire.Checked = true;
             this.rdb_Aleatoire.Location = new System.Drawing.Point(9, 21);
             this.rdb_Aleatoire.Name = "rdb_Aleatoire";
-            this.rdb_Aleatoire.Size = new System.Drawing.Size(85, 20);
+            this.rdb_Aleatoire.Size = new System.Drawing.Size(85, 21);
             this.rdb_Aleatoire.TabIndex = 2;
             this.rdb_Aleatoire.TabStop = true;
             this.rdb_Aleatoire.Text = "Aléatoire";
@@ -1074,7 +1075,7 @@ namespace Danse_s_Playlist_Generator
             this.rdb_Descroissant.AutoSize = true;
             this.rdb_Descroissant.Location = new System.Drawing.Point(210, 21);
             this.rdb_Descroissant.Name = "rdb_Descroissant";
-            this.rdb_Descroissant.Size = new System.Drawing.Size(111, 20);
+            this.rdb_Descroissant.Size = new System.Drawing.Size(111, 21);
             this.rdb_Descroissant.TabIndex = 0;
             this.rdb_Descroissant.Text = "Descroissant";
             this.rdb_Descroissant.UseVisualStyleBackColor = true;
@@ -1084,7 +1085,7 @@ namespace Danse_s_Playlist_Generator
             this.rdb_Croissant.AutoSize = true;
             this.rdb_Croissant.Location = new System.Drawing.Point(108, 21);
             this.rdb_Croissant.Name = "rdb_Croissant";
-            this.rdb_Croissant.Size = new System.Drawing.Size(89, 20);
+            this.rdb_Croissant.Size = new System.Drawing.Size(88, 21);
             this.rdb_Croissant.TabIndex = 1;
             this.rdb_Croissant.Text = "Croissant";
             this.rdb_Croissant.UseVisualStyleBackColor = true;
@@ -1119,7 +1120,7 @@ namespace Danse_s_Playlist_Generator
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(172, 26);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(66, 16);
+            this.label13.Size = new System.Drawing.Size(66, 17);
             this.label13.TabIndex = 14;
             this.label13.Text = "Maximum";
             // 
@@ -1128,7 +1129,7 @@ namespace Danse_s_Playlist_Generator
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(20, 27);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(63, 16);
+            this.label14.Size = new System.Drawing.Size(63, 17);
             this.label14.TabIndex = 13;
             this.label14.Text = "Minimum";
             // 
@@ -1191,7 +1192,7 @@ namespace Danse_s_Playlist_Generator
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(31, 68);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(134, 16);
+            this.label17.Size = new System.Drawing.Size(135, 17);
             this.label17.TabIndex = 8;
             this.label17.Text = "Nombre de musique";
             // 
@@ -1200,12 +1201,13 @@ namespace Danse_s_Playlist_Generator
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(47, 18);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(102, 16);
+            this.label18.Size = new System.Drawing.Size(102, 17);
             this.label18.TabIndex = 7;
             this.label18.Text = "Style de danse";
             // 
             // cmb_Danses_r
             // 
+            this.cmb_Danses_r.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_Danses_r.FormattingEnabled = true;
             this.cmb_Danses_r.Location = new System.Drawing.Point(6, 41);
             this.cmb_Danses_r.Name = "cmb_Danses_r";
@@ -1214,7 +1216,7 @@ namespace Danse_s_Playlist_Generator
             // 
             // lst_Musique_Manuelle_View
             // 
-            this.lst_Musique_Manuelle_View.Font = new System.Drawing.Font("Arimo", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lst_Musique_Manuelle_View.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lst_Musique_Manuelle_View.FormattingEnabled = true;
             this.lst_Musique_Manuelle_View.HorizontalScrollbar = true;
             this.lst_Musique_Manuelle_View.ItemHeight = 16;
@@ -1232,7 +1234,7 @@ namespace Danse_s_Playlist_Generator
             this.grp_selec_rout.Controls.Add(this.btn_nouvelle_routine);
             this.grp_selec_rout.Controls.Add(this.label11);
             this.grp_selec_rout.Controls.Add(this.cmb_routine);
-            this.grp_selec_rout.Font = new System.Drawing.Font("Arimo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grp_selec_rout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_selec_rout.Location = new System.Drawing.Point(9, 6);
             this.grp_selec_rout.Name = "grp_selec_rout";
             this.grp_selec_rout.Size = new System.Drawing.Size(432, 103);
@@ -1258,17 +1260,17 @@ namespace Danse_s_Playlist_Generator
             // lbl_ou
             // 
             this.lbl_ou.AutoSize = true;
-            this.lbl_ou.Font = new System.Drawing.Font("Arimo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ou.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ou.Location = new System.Drawing.Point(220, 48);
             this.lbl_ou.Name = "lbl_ou";
-            this.lbl_ou.Size = new System.Drawing.Size(28, 17);
+            this.lbl_ou.Size = new System.Drawing.Size(28, 18);
             this.lbl_ou.TabIndex = 18;
             this.lbl_ou.Text = "Ou";
             // 
             // btn_nouvelle_routine
             // 
             this.btn_nouvelle_routine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btn_nouvelle_routine.Font = new System.Drawing.Font("Arimo", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nouvelle_routine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_nouvelle_routine.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btn_nouvelle_routine.Location = new System.Drawing.Point(267, 32);
             this.btn_nouvelle_routine.Name = "btn_nouvelle_routine";
@@ -1281,19 +1283,20 @@ namespace Danse_s_Playlist_Generator
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arimo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(61, 32);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(96, 17);
+            this.label11.Size = new System.Drawing.Size(99, 18);
             this.label11.TabIndex = 16;
             this.label11.Text = "Vos routines :";
             // 
             // cmb_routine
             // 
+            this.cmb_routine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_routine.FormattingEnabled = true;
             this.cmb_routine.Location = new System.Drawing.Point(17, 58);
             this.cmb_routine.Name = "cmb_routine";
-            this.cmb_routine.Size = new System.Drawing.Size(184, 25);
+            this.cmb_routine.Size = new System.Drawing.Size(184, 26);
             this.cmb_routine.TabIndex = 15;
             this.cmb_routine.SelectedIndexChanged += new System.EventHandler(this.cmb_routine_SelectedIndexChanged);
             // 
@@ -1302,14 +1305,14 @@ namespace Danse_s_Playlist_Generator
             this.dataGridView_Routine.AllowUserToAddRows = false;
             this.dataGridView_Routine.AllowUserToDeleteRows = false;
             this.dataGridView_Routine.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Routine.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Routine.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_Routine.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Routine.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Col_Auto,
@@ -1343,8 +1346,8 @@ namespace Danse_s_Playlist_Generator
             // 
             // Col_Data_Danse
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Col_Data_Danse.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Col_Data_Danse.DefaultCellStyle = dataGridViewCellStyle2;
             this.Col_Data_Danse.HeaderText = "Danse";
             this.Col_Data_Danse.Name = "Col_Data_Danse";
             this.Col_Data_Danse.ReadOnly = true;
@@ -1353,8 +1356,8 @@ namespace Danse_s_Playlist_Generator
             // 
             // Col_Data_Quantite
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Col_Data_Quantite.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Col_Data_Quantite.DefaultCellStyle = dataGridViewCellStyle3;
             this.Col_Data_Quantite.HeaderText = "Quantité";
             this.Col_Data_Quantite.Name = "Col_Data_Quantite";
             this.Col_Data_Quantite.ReadOnly = true;
@@ -1363,8 +1366,8 @@ namespace Danse_s_Playlist_Generator
             // 
             // Col_Data_Min
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Col_Data_Min.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Col_Data_Min.DefaultCellStyle = dataGridViewCellStyle4;
             this.Col_Data_Min.HeaderText = "Min";
             this.Col_Data_Min.Name = "Col_Data_Min";
             this.Col_Data_Min.ReadOnly = true;
@@ -1372,8 +1375,8 @@ namespace Danse_s_Playlist_Generator
             // 
             // Col_Data_Max
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Col_Data_Max.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Col_Data_Max.DefaultCellStyle = dataGridViewCellStyle5;
             this.Col_Data_Max.HeaderText = "Max";
             this.Col_Data_Max.Name = "Col_Data_Max";
             this.Col_Data_Max.ReadOnly = true;
@@ -1381,8 +1384,8 @@ namespace Danse_s_Playlist_Generator
             // 
             // Col_Data_Tri
             // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Col_Data_Tri.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Col_Data_Tri.DefaultCellStyle = dataGridViewCellStyle6;
             this.Col_Data_Tri.HeaderText = "Tri";
             this.Col_Data_Tri.Name = "Col_Data_Tri";
             this.Col_Data_Tri.ReadOnly = true;
@@ -1460,7 +1463,7 @@ namespace Danse_s_Playlist_Generator
             this.grp_rep.Controls.Add(this.label19);
             this.grp_rep.Controls.Add(this.txt_Rep_Recherche2);
             this.grp_rep.Controls.Add(this.pic_folder);
-            this.grp_rep.Font = new System.Drawing.Font("Arimo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grp_rep.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_rep.Location = new System.Drawing.Point(17, 26);
             this.grp_rep.Name = "grp_rep";
             this.grp_rep.Size = new System.Drawing.Size(674, 123);
@@ -1471,10 +1474,10 @@ namespace Danse_s_Playlist_Generator
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arimo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(33, 35);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(243, 17);
+            this.label19.Size = new System.Drawing.Size(244, 18);
             this.label19.TabIndex = 11;
             this.label19.Text = "Repertoire de recherche par défaut :";
             // 
@@ -1484,7 +1487,7 @@ namespace Danse_s_Playlist_Generator
             this.txt_Rep_Recherche2.Location = new System.Drawing.Point(36, 65);
             this.txt_Rep_Recherche2.Name = "txt_Rep_Recherche2";
             this.txt_Rep_Recherche2.ReadOnly = true;
-            this.txt_Rep_Recherche2.Size = new System.Drawing.Size(483, 25);
+            this.txt_Rep_Recherche2.Size = new System.Drawing.Size(483, 24);
             this.txt_Rep_Recherche2.TabIndex = 10;
             this.txt_Rep_Recherche2.TextChanged += new System.EventHandler(this.txt_Rep_Recherche2_TextChanged);
             // 
@@ -1507,7 +1510,7 @@ namespace Danse_s_Playlist_Generator
             this.grp_tri.Controls.Add(this.rdb_Aucune);
             this.grp_tri.Controls.Add(this.rdb_mpm);
             this.grp_tri.Controls.Add(this.rdb_bpm);
-            this.grp_tri.Font = new System.Drawing.Font("Arimo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grp_tri.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_tri.Location = new System.Drawing.Point(352, 178);
             this.grp_tri.Name = "grp_tri";
             this.grp_tri.Size = new System.Drawing.Size(339, 149);
@@ -1520,7 +1523,7 @@ namespace Danse_s_Playlist_Generator
             this.rdb_Aucune.AutoSize = true;
             this.rdb_Aucune.Location = new System.Drawing.Point(39, 106);
             this.rdb_Aucune.Name = "rdb_Aucune";
-            this.rdb_Aucune.Size = new System.Drawing.Size(148, 21);
+            this.rdb_Aucune.Size = new System.Drawing.Size(149, 22);
             this.rdb_Aucune.TabIndex = 5;
             this.rdb_Aucune.Text = "Aucune (Aléatoire)";
             this.rdb_Aucune.UseVisualStyleBackColor = true;
@@ -1530,7 +1533,7 @@ namespace Danse_s_Playlist_Generator
             this.rdb_mpm.AutoSize = true;
             this.rdb_mpm.Location = new System.Drawing.Point(39, 70);
             this.rdb_mpm.Name = "rdb_mpm";
-            this.rdb_mpm.Size = new System.Drawing.Size(196, 21);
+            this.rdb_mpm.Size = new System.Drawing.Size(202, 22);
             this.rdb_mpm.TabIndex = 4;
             this.rdb_mpm.Text = "Mesure par minute (MPM)";
             this.rdb_mpm.UseVisualStyleBackColor = true;
@@ -1541,7 +1544,7 @@ namespace Danse_s_Playlist_Generator
             this.rdb_bpm.Checked = true;
             this.rdb_bpm.Location = new System.Drawing.Point(39, 34);
             this.rdb_bpm.Name = "rdb_bpm";
-            this.rdb_bpm.Size = new System.Drawing.Size(214, 21);
+            this.rdb_bpm.Size = new System.Drawing.Size(216, 22);
             this.rdb_bpm.TabIndex = 3;
             this.rdb_bpm.TabStop = true;
             this.rdb_bpm.Text = "Battement par minute (BPM)";
@@ -1551,7 +1554,7 @@ namespace Danse_s_Playlist_Generator
             // 
             this.grp_file_sep.Controls.Add(this.rad_slash);
             this.grp_file_sep.Controls.Add(this.rad_backslash);
-            this.grp_file_sep.Font = new System.Drawing.Font("Arimo", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grp_file_sep.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_file_sep.Location = new System.Drawing.Point(17, 178);
             this.grp_file_sep.Name = "grp_file_sep";
             this.grp_file_sep.Size = new System.Drawing.Size(308, 149);
@@ -1564,7 +1567,7 @@ namespace Danse_s_Playlist_Generator
             this.rad_slash.AutoSize = true;
             this.rad_slash.Location = new System.Drawing.Point(42, 92);
             this.rad_slash.Name = "rad_slash";
-            this.rad_slash.Size = new System.Drawing.Size(234, 21);
+            this.rad_slash.Size = new System.Drawing.Size(239, 22);
             this.rad_slash.TabIndex = 1;
             this.rad_slash.TabStop = true;
             this.rad_slash.Text = "Système Androïd, Apple ou Unix";
@@ -1575,7 +1578,7 @@ namespace Danse_s_Playlist_Generator
             this.rad_backslash.AutoSize = true;
             this.rad_backslash.Location = new System.Drawing.Point(42, 44);
             this.rad_backslash.Name = "rad_backslash";
-            this.rad_backslash.Size = new System.Drawing.Size(152, 21);
+            this.rad_backslash.Size = new System.Drawing.Size(153, 22);
             this.rad_backslash.TabIndex = 0;
             this.rad_backslash.TabStop = true;
             this.rad_backslash.Text = "Système Windows";

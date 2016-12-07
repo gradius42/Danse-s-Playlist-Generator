@@ -265,6 +265,7 @@ namespace Danse_s_Playlist_Generator
             else
             {
                 int num = (int)MessageBox.Show("Base de donnée introuvable.");
+                fen_loading_worker.RequestStop();
                 this.Close();
             }
         }
@@ -382,78 +383,57 @@ namespace Danse_s_Playlist_Generator
            
             string[] directories = Directory.GetDirectories(path, "*");
 
-            Array.Reverse(directories);
+            //Array.Reverse(directories);
             
-            List<Load_Worker> W_Liste = new List<Load_Worker>();
-            List<Thread> T_Liste = new List<Thread>();
-
-            List<string> remove_list = new List<string>();
-
-            int limite = 1;
-            int position = 0;
-            int count = 0;
-
-            for( int i = 0; i < directories.Length; i++)
+            //List<string> remove_list = new List<string>();
+            
+            foreach (string str1 in directories)
             {
-                if ( count % limite == 0 && count != 0 )
-                {
-                    for (int j = position; j < T_Liste.Count; j++)
-                    {
-                        T_Liste[j].Join();
-                    }
-                    position = i;
-                    
-                }
-                
-                string str1 = directories[i];
                 char chArray = g.sep;
 
                 string name = ((IEnumerable<string>)str1.Split(chArray)).Last<string>();
-                
-                List<string> list = ((IEnumerable<string>)Directory.GetFiles(directories[i] + g.sep.ToString(),"*.mp3")).ToList<string>();
 
-                g.Type_Musique.Add(name);
-                g.Musique_Founded.Add(new List<string>());
-                
+                List<string> list = ((IEnumerable<string>)Directory.GetFiles(g.repertoire + g.sep.ToString() + name + g.sep.ToString(), "*.mp3")).ToList<string>();
+
                 if (list.Count > 0)
                 {
-                    Load_Worker w = new Load_Worker(i, name, list,fen_loading_worker);
-                    W_Liste.Add(w);
+                    g.Type_Musique.Add(name);
+                    this.cmb_Danses.Items.Add(name);
+                    this.cmb_Danses_r.Items.Add(name);
 
-                    Thread t = new Thread( new ThreadStart(W_Liste[i].DoWork_loading));
-                    T_Liste.Add(t);
-                    t.Start();
+                    fen_loading_worker.UpDate_Status("Loading : " + name);
+
+                    List<string> stringList = new List<string>();
+
+                    foreach (string str2 in list)
+                    {
+                        //Console.WriteLine(str2 + "\n");
+
+                        stringList.Add(((IEnumerable<string>)str2.Split(g.sep)).Last<string>());
+                        try
+                        {
+                            Mp3FileReader reader = new Mp3FileReader(str2);
+                            TimeSpan duration = reader.TotalTime;
+
+                            if (!g.Musique_duration.ContainsKey(str2.Split(g.sep).Last<string>()))
+                                g.Musique_duration.Add(str2.Split(g.sep).Last<string>(), (int)duration.TotalSeconds);
+
+                            g.d_total = new TimeSpan(0, 0, (int)g.d_total.TotalSeconds + (int)duration.TotalSeconds);
+                        }
+                        catch (System.InvalidOperationException err)
+                        {
+                            Console.WriteLine(err);
+                        }
+
+                    }
+
+                    g.Musique_Founded.Add(stringList);
                     
                 }
-                else
-                {
-                    remove_list.Add(name);
-
-                    Load_Worker w = new Load_Worker(-1, name, list, fen_loading_worker);
-                    W_Liste.Add(w);
-
-                    Thread t = new Thread(new ThreadStart(W_Liste[i].DoWork_loading));
-                    T_Liste.Add(t);
-                    t.Start();
- 
-                }
-
             }
 
-            for (int j = 0; j < T_Liste.Count; j++)
-            {
-                T_Liste[j].Join();
-            }
-
-            foreach (string name in remove_list)
-            {
-                int index = g.Type_Musique.IndexOf(name);
-                g.Type_Musique.RemoveAt(index);
-                g.Musique_Founded.RemoveAt(index);
-            }
-
-            g.Type_Musique.Reverse();
-            g.Musique_Founded.Reverse();
+            //g.Type_Musique.Reverse();
+            //g.Musique_Founded.Reverse();
             
             foreach(string name in g.Type_Musique)
             {
@@ -1678,6 +1658,7 @@ namespace Danse_s_Playlist_Generator
         {
             connect.Open();
 
+            OleDbCommand cmd;
             if (routine_name == "new")
             {
                 string nom = Interaction.InputBox("Quel nom voulez-vous donner à la routine?", "Nouvelle routine", "");
@@ -1694,7 +1675,7 @@ namespace Danse_s_Playlist_Generator
 
                         return -1;
                     }
-                    
+
 
                     else if (cmb_Danses_r.Items.Contains(nom))
                         err = "Erreur : Ce nom de routine est déjà utilisé.\n\n";
@@ -1711,18 +1692,20 @@ namespace Danse_s_Playlist_Generator
                 routine_name = nom;
 
                 cmb_Danses_r.Items.Add(routine_name);
+                cmb_routine.Items.Add(routine_name);
 
                 OleDbCommand cmd2 = new OleDbCommand(SQL_Command.Insert_Routine(routine_name, ""), connect);
                 cmd2.ExecuteNonQuery();
 
-                
+
 
             }
+            else
+            {
+                cmd = new OleDbCommand(SQL_Command.Delete_Musique(routine_name), connect);
+                cmd.ExecuteNonQuery();
+            }
 
-            OleDbCommand cmd = new OleDbCommand(SQL_Command.Delete_Musique(routine_name), connect);
-            cmd.ExecuteNonQuery();
-            cmd = new OleDbCommand(SQL_Command.Delete_Danse(routine_name), connect);
-            cmd.ExecuteNonQuery();
 
             int counter = 0;
             for (int i = 0; i < dataGridView_Routine.Rows.Count; i++)
