@@ -1,0 +1,25 @@
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\bin\Release\Danse s Playlist Generator.exe.config
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\bin\Release\PlayListGenerator.mdb
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\bin\Release\Danse s Playlist Generator.exe.manifest
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\bin\Release\Danse s Playlist Generator.application
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\bin\Release\Danse s Playlist Generator.exe
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\bin\Release\Danse s Playlist Generator.pdb
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\bin\Release\NAudio.dll
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse_s_Playlist_Generator.Apperçu.resources
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse_s_Playlist_Generator.Application_Fen.resources
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse_s_Playlist_Generator.Chargement.resources
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse_s_Playlist_Generator.Initialisation.resources
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse_s_Playlist_Generator.Model_Constructeur.resources
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse_s_Playlist_Generator.Routine_Loader.resources
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse_s_Playlist_Generator.Selection_Manuelle.resources
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse_s_Playlist_Generator.Selection_param.resources
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse_s_Playlist_Generator.Menu.resources
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse_s_Playlist_Generator.Properties.Resources.resources
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse_s_Playlist_Generator.Selection_Danse.resources
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse s Playlist Generator.csproj.GenerateResource.Cache
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse s Playlist Generator.TrustInfo.xml
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse s Playlist Generator.exe.manifest
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse s Playlist Generator.application
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse s Playlist Generator.exe
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse s Playlist Generator.pdb
+D:\User\Document\Visual Studio 2015\Projects\Danse's Playlist Generator\Danse's Playlist Generator\obj\Release\Danse s Playlist Generator.csprojResolveAssemblyReference.cache

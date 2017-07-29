@@ -40,7 +40,7 @@
             this.label1.Location = new System.Drawing.Point(90, 59);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 20);
+            this.label1.Size = new System.Drawing.Size(109, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Chargement ... /";
             // 
@@ -51,7 +51,7 @@
             this.label2.Location = new System.Drawing.Point(88, 26);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 26);
+            this.label2.Size = new System.Drawing.Size(109, 22);
             this.label2.TabIndex = 1;
             this.label2.Text = "Démarrage :";
             // 
@@ -63,7 +63,7 @@
             this.label3.Location = new System.Drawing.Point(98, 98);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 18);
+            this.label3.Size = new System.Drawing.Size(82, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "Status update";
             this.label3.Visible = false;
@@ -76,6 +76,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Enabled = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;

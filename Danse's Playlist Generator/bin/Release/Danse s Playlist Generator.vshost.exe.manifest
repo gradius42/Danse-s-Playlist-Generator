@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Danse s Playlist Generator.exe" size="488432">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Danse s Playlist Generator.exe" size="480752">
       <assemblyIdentity name="Danse s Playlist Generator" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>EYMMpwoV0dJxG6a+buHZ9rkIYCQXHd5Sys9FQmRHi+s=</dsig:DigestValue>
+        <dsig:DigestValue>r6ggcuDOLgzE7bDKp9lE/v7+k4TzqtoKh0dYM7lfqN8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

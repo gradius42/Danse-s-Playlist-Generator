@@ -432,15 +432,6 @@ namespace Danse_s_Playlist_Generator
                 }
             }
 
-            //g.Type_Musique.Reverse();
-            //g.Musique_Founded.Reverse();
-            
-            foreach(string name in g.Type_Musique)
-            {
-                this.cmb_Danses.Items.Add(name);
-                this.cmb_Danses_r.Items.Add(name);
-            }
-
                 // Durée totale
 
             if (g.d_total.TotalSeconds == 0)
@@ -649,9 +640,12 @@ namespace Danse_s_Playlist_Generator
 
         private void Application_Load(object sender, EventArgs e)
         {
-            
+            this.Enabled = false;
+
             DoWork();
-            
+
+            this.Enabled = true;
+
         }
 
         private void DoWork()
@@ -659,18 +653,20 @@ namespace Danse_s_Playlist_Generator
             Thread t = new Thread(new ThreadStart(fen_loading_worker.DoWork));
             t.Start();
             
+            fen_loading_worker.UpDate_Status("Loading : Os type ...");
+
             Load_Os_Type();
 
-            fen_loading_worker.UpDate_Status("Os type loaded ...");
-            
+
+            fen_loading_worker.UpDate_Status("Connecting DataBase ...");
 
             this.Open_Connection();
 
-            fen_loading_worker.UpDate_Status("DataBase connected ...");
+            fen_loading_worker.UpDate_Status("Loading : Parameters ...");
 
             this.Read_Parametres();
 
-            fen_loading_worker.UpDate_Status("Parameters loaded ...");
+            fen_loading_worker.UpDate_Status("Loading : Musics ...");
 
             if (g.repertoire != "")
                 this.Load_Files(g.repertoire);
@@ -678,12 +674,11 @@ namespace Danse_s_Playlist_Generator
                 this.Load_Stats();
 
             this.status_modif(false);
-            
+
+            fen_loading_worker.UpDate_Status("Loading : Routines ...");
+
             Load_Routine();
-
-            Thread t4 = new Thread(() => fen_loading_worker.UpDate_Status("Routines loaded ..."));
-            t4.Start();
-
+            
             fen_loading_worker.RequestStop();
             t.Join();
 
@@ -1405,9 +1400,17 @@ namespace Danse_s_Playlist_Generator
                     if (apperçu.DialogResult == DialogResult.OK)
                     {
                         SaveFileDialog saveFileDialog = new SaveFileDialog();
+                        saveFileDialog.InitialDirectory = g.repertoire;
+                        saveFileDialog.FileName = "Nouvelle playlist";
+                        saveFileDialog.Title = "Enregistrement de la playlist";
+                        saveFileDialog.DefaultExt = ".m3u";
+                        saveFileDialog.AddExtension = true;
                         if (saveFileDialog.ShowDialog() == DialogResult.OK)
                         {
-                            File.WriteAllText(saveFileDialog.FileName + ".m3u", g.text);
+                            if (File.Exists(saveFileDialog.FileName))
+                                File.Delete(saveFileDialog.FileName);
+
+                            File.WriteAllText(saveFileDialog.FileName, g.text);
                             int num2 = (int)MessageBox.Show("Sauvegarde Réussie !");
                             Maj_Stat_Geneation(++g.nombre_Generation);
 
@@ -1417,9 +1420,17 @@ namespace Danse_s_Playlist_Generator
                     break;
                 case DialogResult.No:
                     SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                    saveFileDialog1.InitialDirectory = g.repertoire;
+                    saveFileDialog1.FileName = "Nouvelle playlist";
+                    saveFileDialog1.Title = "Enregistrement de la playlist";
+                    saveFileDialog1.DefaultExt = ".m3u";
+                    saveFileDialog1.AddExtension = true;
                     if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                     {
-                        File.WriteAllText(saveFileDialog1.FileName + ".m3u", g.text);
+                        if (File.Exists(saveFileDialog1.FileName))
+                            File.Delete(saveFileDialog1.FileName);
+
+                        File.WriteAllText(saveFileDialog1.FileName, g.text);
                         int num2 = (int)MessageBox.Show("Sauvegarde Réussie !");
                         Maj_Stat_Geneation(++g.nombre_Generation);
                     }
@@ -1691,7 +1702,6 @@ namespace Danse_s_Playlist_Generator
 
                 routine_name = nom;
 
-                cmb_Danses_r.Items.Add(routine_name);
                 cmb_routine.Items.Add(routine_name);
 
                 OleDbCommand cmd2 = new OleDbCommand(SQL_Command.Insert_Routine(routine_name, ""), connect);
