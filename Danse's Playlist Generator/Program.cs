@@ -14,22 +14,38 @@ namespace Danse_s_Playlist_Generator
         // Globals variables
 
             // Fichiers
+            
+            // Init
         public string repertoire;
 
-        public char sep;
+        //public char sep;
 
         public char sep_final;
 
-        public int nombre_Generation;
+        public string Speed_Unit;
+
+
+        // playlist
+
+        public List<Playlist> playlistlist = new List<Playlist>();
+
+        public Dossier dossier = new Dossier();
+
+
+
+        // other 
+
+        public string text = ""; // ?
+        
+
+        // === OSEF === // 
+
+        /*public int nombre_Generation;
 
         public List<string> Type_Musique = new List<string>();
 
         public List<List<string>> Musique_Founded = new List<List<string>>();
-
-        public string text = "";
-
-        public string Speed_Unit;
-
+        
         public IDictionary<string, int> Musique_duration = new Dictionary<string, int>();
 
             // Playlist
@@ -41,7 +57,7 @@ namespace Danse_s_Playlist_Generator
         public TimeSpan Playlist_Length = new TimeSpan(0,0,0);
 
         public TimeSpan d_total = new TimeSpan(0, 0, 0);
-
+        */
     }
 
     public static class SQL_Command

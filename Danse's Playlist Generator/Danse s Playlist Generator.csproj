@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -106,6 +106,8 @@
     <Compile Include="Chargement.Designer.cs">
       <DependentUpon>Chargement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Danse.cs" />
+    <Compile Include="Dossier.cs" />
     <Compile Include="Initialisation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +120,9 @@
     <Compile Include="Model_Constructeur.Designer.cs">
       <DependentUpon>Model_Constructeur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Musique.cs" />
+    <Compile Include="Playlist.cs" />
+    <Compile Include="PlaylistPart.cs" />
     <Compile Include="Routine_Loader.cs">
       <SubType>Form</SubType>
     </Compile>

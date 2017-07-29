@@ -91,7 +91,7 @@ namespace Danse_s_Playlist_Generator
         // fonctions
 
         public void Generate_music_list(int Min, int Max, string danse_file, int number)
-        {
+        {/*
             // vérifie l'ordre
 
             int min = Min;
@@ -178,11 +178,11 @@ namespace Danse_s_Playlist_Generator
                 // n'ajoute pas la danse
                 MessageBox.Show("Toutes les musiques de ce style et dans cette porté sont déjà dans la playlist.");
             }
-            
+            */
         }
         
         public void Add_Music_to_Selection(int Min, int Max)
-        {
+        {/*
             if (listW_Danse_List.SelectedItems.Count > 0)
             {
                 int min = Min;
@@ -265,11 +265,11 @@ namespace Danse_s_Playlist_Generator
             }
 
             Maj_Liste_Musique();         
-            
+            */
         }
 
         public void Modify_Music_Selected(int Min, int Max)
-        {
+        {/*
 
             int min = Min;
             int max = Max;
@@ -348,12 +348,12 @@ namespace Danse_s_Playlist_Generator
             {
                 list_Musiques.SetSelected(i, true);
             }
-
+            */
         }
 
         public void Modify_All_Music(int Min, int Max)
         {
-            
+            /*
             int min = Min;
             int max = Max;
 
@@ -422,7 +422,7 @@ namespace Danse_s_Playlist_Generator
             
             Maj_Liste_Musique();
 
-            g.Musique_playlist[index_danse_selected] = selection;
+            g.Musique_playlist[index_danse_selected] = selection;*/
         }
         
         public void Change_Min_Max(int Min, int Max)
@@ -435,7 +435,7 @@ namespace Danse_s_Playlist_Generator
         }
 
         public void Maj_Liste_Musique()
-        {
+        {/*
             list_Musiques.Items.Clear();
 
             if (listW_Danse_List.SelectedIndices.Count > 0)
@@ -444,7 +444,7 @@ namespace Danse_s_Playlist_Generator
                 {
                     list_Musiques.Items.Add(m);
                 }
-            }
+            }*/
         }
 
         public void Shuffle<T>(IList<T> list)
@@ -486,7 +486,7 @@ namespace Danse_s_Playlist_Generator
         }
 
         public void Ajout_Manuel(int position, string style, List<string> Musique)
-        {
+        {/*
             if(position == -1)
             {
                 string[] arr = new string[4]; ListViewItem itm;
@@ -527,11 +527,11 @@ namespace Danse_s_Playlist_Generator
                     }
                     
                 }
-            }
+            }*/
         }
 
         public void load_files(string path_files)
-        {
+        {/*
             string path = path_files;
 
             g.repertoire = path;
@@ -607,13 +607,13 @@ namespace Danse_s_Playlist_Generator
             catch
             {
                 MessageBox.Show("Mauvais répertoire");
-            }
+            }*/
         }
 
         // events
 
         private void btn_folder_select_Click(object sender, EventArgs e)
-        {
+        {/*
             //Lecture du repertoire de musique
             FolderBrowserDialog Folder = new FolderBrowserDialog();
             DialogResult result1 = Folder.ShowDialog();
@@ -627,7 +627,7 @@ namespace Danse_s_Playlist_Generator
 
                 load_files(Folder.SelectedPath);
                 File.WriteAllText(file_param, Folder.SelectedPath);
-            }
+            }*/
         }
 
         private void btn_ajouter_danse_Click(object sender, EventArgs e)
@@ -682,7 +682,7 @@ namespace Danse_s_Playlist_Generator
         }
 
         private void btn_delete_danse_Click(object sender, EventArgs e)
-        {
+        {/*
 
             int index_danse_selected = listW_Danse_List.SelectedIndices[0];
             if (index_danse_selected != -1)
@@ -699,11 +699,11 @@ namespace Danse_s_Playlist_Generator
                 g.Musique_playlist.RemoveAt(index_danse_selected);
                 
                 Maj_Liste_Musique();
-            }
+            }*/
         }
 
         private void btn_delete_selection_Click(object sender, EventArgs e)
-        {
+        {/*
             int index_danse_selected = listW_Danse_List.SelectedIndices[0];
 
             List<int> selected_indices = new List<int>();
@@ -736,11 +736,11 @@ namespace Danse_s_Playlist_Generator
                 }
 
                 Maj_Liste_Musique();
-            }
+            }*/
         }
 
         private void btn_music_up_Click(object sender, EventArgs e)
-        {
+        {/*
             if (listW_Danse_List.SelectedIndices[0] > 0)
             {
                 int index = listW_Danse_List.SelectedIndices[0];
@@ -775,11 +775,11 @@ namespace Danse_s_Playlist_Generator
                 listW_Danse_List.Items[index_].Selected = true;
                 
                 listW_Danse_List.Focus();
-            }
+            }*/
         }
 
         private void btn_music_down_Click(object sender, EventArgs e)
-        {
+        {/*
             if ((listW_Danse_List.SelectedItems.Count > 0) && (listW_Danse_List.SelectedIndices[0] < listW_Danse_List.Items.Count - 1))
             {
                 int index = listW_Danse_List.SelectedIndices[0];
@@ -812,11 +812,11 @@ namespace Danse_s_Playlist_Generator
                 listW_Danse_List.Items[index_].Selected = true;
 
                 listW_Danse_List.Focus();
-            }
+            }*/
         }
 
         private void btn_selection_up_Click(object sender, EventArgs e)
-        {
+        {/*
             if (list_Musiques.SelectedIndex > 0)
             {
 
@@ -833,11 +833,11 @@ namespace Danse_s_Playlist_Generator
                 Maj_Liste_Musique();
 
                 list_Musiques.SelectedIndex = index - 1;
-            }
+            }*/
         }
 
         private void btn_selection_down_Click(object sender, EventArgs e)
-        {
+        {/*
             if (list_Musiques.SelectedIndex != -1 && (list_Musiques.SelectedIndex < list_Musiques.Items.Count - 1))
             {
                 List<string> music1 = g.Musique_playlist[listW_Danse_List.SelectedIndices[0]];
@@ -853,28 +853,28 @@ namespace Danse_s_Playlist_Generator
                 Maj_Liste_Musique();
 
                 list_Musiques.SelectedIndex = index + 1;
-            }
+            }*/
         }
 
         private void btn_musique_asc_Click(object sender, EventArgs e)
-        {
+        {/*
             IComparer<string> comparer = new MusiqueComparer();
 
             g.Musique_playlist[listW_Danse_List.SelectedIndices[0]].Sort(comparer);
             g.Musique_playlist[listW_Danse_List.SelectedIndices[0]].Reverse();
-            Maj_Liste_Musique();
+            Maj_Liste_Musique();*/
         }
 
         private void btn_music_desc_Click(object sender, EventArgs e)
-        {
+        {/*
             IComparer<string> comparer = new MusiqueComparer();
 
             g.Musique_playlist[listW_Danse_List.SelectedIndices[0]].Sort(comparer);
-            Maj_Liste_Musique();
+            Maj_Liste_Musique();*/
         }
 
         private void btn_Shuffle_Click(object sender, EventArgs e)
-        {
+        {/*
             if (listW_Danse_List.SelectedItems.Count > 0)
             {
                 List<String> l = g.Musique_playlist[listW_Danse_List.SelectedIndices[0]];
@@ -884,11 +884,11 @@ namespace Danse_s_Playlist_Generator
                 g.Musique_playlist[listW_Danse_List.SelectedIndices[0]] = l;
                 Maj_Liste_Musique();
             }
-
+            */
         }
 
         private void btn_save_Click(object sender, EventArgs e)
-        {
+        {/*
             if(listW_Danse_List.Items.Count > 0)
             {
                 // génère le texte de la playlist
@@ -950,11 +950,11 @@ namespace Danse_s_Playlist_Generator
                 }
                 
             }
-
+            */
         }
 
         private void btn_reset_Click(object sender, EventArgs e)
-        {
+        {/*
             DialogResult dialogResult = MessageBox.Show("Etes-vous sure de vouloir supprimer la playlist ?", "Confirmation", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -962,7 +962,7 @@ namespace Danse_s_Playlist_Generator
                 list_Musiques.Items.Clear();
                 g.Musique_playlist.Clear();
                 g.Musique_Added.Clear();
-            }
+            }*/
         }
 
         private void Nup_Min_ValueChanged(object sender, EventArgs e)
@@ -1047,7 +1047,7 @@ namespace Danse_s_Playlist_Generator
         }
 
         private void btn_load_rout_Click(object sender, EventArgs e)
-        {
+        {/*
             OpenFileDialog FileD = new OpenFileDialog();
             FileD.Filter = "Text Files (.rtnPlay)|*.rtnPlay";
             FileD.FilterIndex = 1;
@@ -1131,7 +1131,7 @@ namespace Danse_s_Playlist_Generator
                 }
 
             }
-
+            */
         }
 
         private void listW_Danse_List_Leave(object sender, EventArgs e)

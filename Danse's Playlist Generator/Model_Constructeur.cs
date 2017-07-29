@@ -20,7 +20,7 @@ namespace Danse_s_Playlist_Generator
         List<List<string>> Musique_Manuelle = new List<List<string>>();
         
         public Model_Constructeur(Form callingForm)
-        {
+        {/*
             InitializeComponent();
 
             mainForm = (Menu)callingForm;
@@ -30,7 +30,7 @@ namespace Danse_s_Playlist_Generator
             foreach(string s in mainForm.g.Type_Musique)
             {
                 cmb_Danses.Items.Add(s);
-            }
+            }*/
             
         }
 

@@ -8,7 +8,6 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
-using NAudio.Wave;
 using System.Threading;
 
 namespace Danse_s_Playlist_Generator
@@ -25,23 +24,26 @@ namespace Danse_s_Playlist_Generator
         // Globals
 
         public static Globals g = new Globals();
-        public int gListView1LostFocusItem = -1;
-        public OleDbConnection connect;
         public Worker fen_loading_worker = new Worker();
-
+        
+        // to move
+        public int gListView1LostFocusItem = -1;
+                
         // Global Classe
 
-        public class MusiqueComparer : IComparer<string>
+        public class MusiqueComparer : IComparer<Musique>
         {
-            public int Compare(string x, string y)
+            public int Compare(Musique x, Musique y)
             {
-                int bpm1 = Find_BPM(x, g.Speed_Unit);
-                int bpm2 = Find_BPM(y, g.Speed_Unit);
+                int bpm1 = x.rythme;
+                int bpm2 = y.rythme;
                 if (bpm1 < bpm2)
                     return -1;
                 return bpm1 > bpm2 ? 1 : 0;
             }
         }
+
+        //----
 
         private class Item
         {
@@ -60,6 +62,8 @@ namespace Danse_s_Playlist_Generator
             }
         }
 
+
+        // --- 
         public class Worker
         {
             private volatile bool _shouldStop;
@@ -92,25 +96,25 @@ namespace Danse_s_Playlist_Generator
 
                     fen.Update();
 
-                    Thread.Sleep(250);
+                    //Thread.Sleep(250);
 
                     label1.Text = "Chargement .... |";
 
-                    fen.Update();
+                    //fen.Update();
 
-                    Thread.Sleep(250);
+                    //Thread.Sleep(250);
 
                     label1.Text = "Chargement .    /";
 
-                    fen.Update();
+                    //fen.Update();
 
-                    Thread.Sleep(250);
+                    //Thread.Sleep(250);
 
                     label1.Text = "Chargement ..   -";
 
-                    fen.Update();
+                    //fen.Update();
 
-                    Thread.Sleep(250);
+                   // Thread.Sleep(250);
                 }
 
                 fen.Close();
@@ -129,7 +133,7 @@ namespace Danse_s_Playlist_Generator
          
         }
 
-        public class Load_Worker
+        /*public class Load_Worker
         {
             public int Index;
             public string Name;
@@ -159,35 +163,25 @@ namespace Danse_s_Playlist_Generator
 
                 List<string> stringList = new List<string>();
 
+                //
                 foreach (string str2 in list)
                 {
                     //Console.WriteLine(str2 + "\n");
 
                     stringList.Add(((IEnumerable<string>)str2.Split(g.sep)).Last<string>());
-                    try
-                    {
-                        Mp3FileReader reader = new Mp3FileReader(str2);
-                        TimeSpan duration = reader.TotalTime;
-
-                        if (!g.Musique_duration.ContainsKey(str2.Split(g.sep).Last<string>()))
-                            g.Musique_duration.Add(str2.Split(g.sep).Last<string>(), (int)duration.TotalSeconds);
-
-                        g.d_total = new TimeSpan(0, 0, (int)g.d_total.TotalSeconds + (int)duration.TotalSeconds);
-                    }
-                    catch (System.InvalidOperationException err)
-                    {
-                        //Console.WriteLine(err);
-                    }
+                    
 
                 }
 
-                g.Musique_Founded[index] = stringList;
+                //g.Musique_Founded[index] = stringList;
                 //Console.WriteLine(index + " : " + name);
 
                 fen_loading_worker.UpDate_Status(name + " musics loaded ...");
             }
 
-        }
+        }*/
+        // ---
+
 
         // Global Functions
 
@@ -196,47 +190,6 @@ namespace Danse_s_Playlist_Generator
             int result;
             return int.TryParse(Convert.ToString(Expression), NumberStyles.Any, (IFormatProvider)NumberFormatInfo.InvariantInfo, out result);
         }
-
-        public static bool Find_Index_BPM(string s)
-        {
-            return s.StartsWith(g.Speed_Unit.ToUpper());
-        }
-
-        public static int Find_BPM(string music, string unit)
-        {
-            string[] strArray = music.ToUpper().Split(' ');
-
-            if (unit == "" || strArray.Length < 2)
-                return -1;
-            
-            string s = strArray[0];
-
-            string upper = strArray[1];
-            
-            try
-            {
-                for (int index = 1; !upper.StartsWith(unit) && index < strArray.Length - 1; upper = strArray[index])
-                {
-                    if (upper.EndsWith(".MP3"))
-                        break;
-
-                    s = strArray[index];
-                    ++index;
-                }
-            }
-            catch(IndexOutOfRangeException err)
-            {
-                return -1;
-            }
-            
-
-            if (upper.Replace(".MP3","") == unit && IsNumeric((object)s))
-                return int.Parse(s);
-
-            return -1;
-        }
-
-        
 
         public void Shuffle<T>(IList<T> list)
         {
@@ -256,34 +209,13 @@ namespace Danse_s_Playlist_Generator
 
         // -------------- Fonctions -------------- //
 
-        private void Open_Connection()
-        {
-            string file = "." + g.sep + "PlayListGenerator.MDB";
-
-            if (File.Exists(file))
-                this.connect = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=.\\PlayListGenerator.MDB");
-            else
-            {
-                int num = (int)MessageBox.Show("Base de donnée introuvable.");
-                fen_loading_worker.RequestStop();
-                this.Close();
-            }
-        }
-
-        private void Load_Os_Type()
-        {
-            if (Directory.GetCurrentDirectory().Contains("/"))
-                g.sep = '/';
-            else
-                g.sep = '\\';
-        }
-
+        
         private void Read_Parametres()
         {
-            if (!File.Exists("." + g.sep.ToString() + "Application.config"))
+            if (!File.Exists("." + Path.DirectorySeparatorChar + "Application.config"))
                 return;
 
-            using (StreamReader streamReader = new StreamReader("." + g.sep.ToString() + "Application.config"))
+            using (StreamReader streamReader = new StreamReader("." + Path.DirectorySeparatorChar + "Application.config"))
             {
 
                 string str1;
@@ -351,14 +283,14 @@ namespace Danse_s_Playlist_Generator
 
                             break;
                     }
-
-
+                    
                 }
             }
         }
-
+        
         private void Load_Files(string path_files)
         {
+            // trouve le repertoire
             if (Directory.Exists(path_files))
             {
                 Console.WriteLine("Repertoire OK");
@@ -366,90 +298,48 @@ namespace Danse_s_Playlist_Generator
             else
             {
                 MessageBox.Show("Repertoire de recherche introuvabe.\n Merci de relancer l'application pour resélectionner le repertoire.");
+                // supprime le parametrage erroné
                 Write_Parametres("");
-                this.Close();
+                // Ferme l'application
+                Close();
             } 
              
             string path = path_files;
-            
-            g.Musique_playlist.Clear();
-            g.Musique_Added.Clear();
-            this.cmb_Danses.Items.Clear();
-            this.cmb_Danses_r.Items.Clear();
-            g.Type_Musique.Clear();
-            g.Musique_Founded.Clear();
-            
-            this.txt_Rep_Recherche.Text = path;
-           
+                        
+            // Trouve les repetoire de danse
             string[] directories = Directory.GetDirectories(path, "*");
-
-            //Array.Reverse(directories);
             
-            //List<string> remove_list = new List<string>();
-            
-            foreach (string str1 in directories)
+            // pour chaque danse
+            foreach (string Dir in directories)
             {
-                char chArray = g.sep;
-
-                string name = ((IEnumerable<string>)str1.Split(chArray)).Last<string>();
-
-                List<string> list = ((IEnumerable<string>)Directory.GetFiles(g.repertoire + g.sep.ToString() + name + g.sep.ToString(), "*.mp3")).ToList<string>();
-
+                // Liste toute les musiques du répertoire
+                List<string> list = ((IEnumerable<string>)Directory.GetFiles(Dir, "*.mp3")).ToList<string>();
+                                
                 if (list.Count > 0)
                 {
-                    g.Type_Musique.Add(name);
-                    this.cmb_Danses.Items.Add(name);
-                    this.cmb_Danses_r.Items.Add(name);
-
-                    fen_loading_worker.UpDate_Status("Loading : " + name);
-
-                    List<string> stringList = new List<string>();
-
-                    foreach (string str2 in list)
+                    // Crée une nouvelle danse
+                    Danse d = new Danse(Dir.Split(Path.DirectorySeparatorChar).Last());
+                    
+                    // Change le status de chargement
+                    fen_loading_worker.UpDate_Status("Loading : " + d.nom);
+                    
+                    // On ajoute toutes les musiques
+                    foreach (string m in list)
                     {
-                        //Console.WriteLine(str2 + "\n");
-
-                        stringList.Add(((IEnumerable<string>)str2.Split(g.sep)).Last<string>());
-                        try
-                        {
-                            Mp3FileReader reader = new Mp3FileReader(str2);
-                            TimeSpan duration = reader.TotalTime;
-
-                            if (!g.Musique_duration.ContainsKey(str2.Split(g.sep).Last<string>()))
-                                g.Musique_duration.Add(str2.Split(g.sep).Last<string>(), (int)duration.TotalSeconds);
-
-                            g.d_total = new TimeSpan(0, 0, (int)g.d_total.TotalSeconds + (int)duration.TotalSeconds);
-                        }
-                        catch (System.InvalidOperationException err)
-                        {
-                            Console.WriteLine(err);
-                        }
-
+                        d.Add_Musique(new Musique(m));
                     }
 
-                    g.Musique_Founded.Add(stringList);
-                    
+                    g.dossier.Add_Danse(d);
                 }
             }
 
-                // Durée totale
+                
 
-            if (g.d_total.TotalSeconds == 0)
-                lbl_durée_musique.Text = "Durée totale : 0 Seconde";
-            else
-            {
-                string txt = "";
 
-                if (g.d_total.Hours > 0)
-                    txt += " " + (int)g.d_total.TotalHours + " h ";
 
-                if (g.d_total.Minutes > 0)
-                    txt += " " + g.d_total.Minutes + " m ";
 
-                txt += " " + g.d_total.Seconds + " s ";
 
-                lbl_durée_musique.Text = "Durée totale :" + txt;
-            }
+            this.txt_Rep_Recherche.Text = path;
 
             this.Load_Stats();
             this.Fill_three_view();
@@ -460,46 +350,52 @@ namespace Danse_s_Playlist_Generator
         {
             this.treeView1.Nodes.Clear();
 
-            if (g.Type_Musique.Count > 0)
-                for (int index = 0; index < g.Type_Musique.Count; ++index)
+            treeView1.PathSeparator = Path.DirectorySeparatorChar.ToString();
+
+            foreach (Danse d in g.dossier.Get_All_Danses())
+            {
+                // Ajoute un Noeud danse avec le nombre de musique
+                TreeNode children = new TreeNode(d.nom + " (" + d.Get_All_Musique_Name().Count + ")");
+
+                // Ajoute les musiques au noeud
+                foreach (Musique m in d.Get_All_Musique())
                 {
-
-                    this.treeView1.PathSeparator = g.sep.ToString();
-                    this.treeView1.Nodes.Add(g.Type_Musique[index] + " (" + (object)g.Musique_Founded[index].Count + ")");
-
-                    foreach (string text in g.Musique_Founded[index])
-                        this.treeView1.Nodes[index].Nodes.Add(text);
-
+                    children.Nodes.Add(m.nom);
                 }
+
+                // ajoute les musique a l'arbre
+                treeView1.Nodes.Add(children);
+                
+            }
         }
 
         private void Load_Stats()
         {
-            // style de danse
+            fen_loading_worker.UpDate_Status("Loading statistics ...");
 
-            if (g.Type_Musique.Count == 0)
+            // nombre style de danse
+            int nb = g.dossier.Get_All_Danses().Count;
+            if (nb == 0)
                 this.lbl_danse_f.Text = "Aucun style de danse referencée.";
-            else if (g.Type_Musique.Count == 1)
-                this.lbl_danse_f.Text = g.Type_Musique.Count.ToString() + " style de danse referencée.";
+            else if (nb == 1)
+                this.lbl_danse_f.Text = nb + " style de danse referencée.";
             else
-                this.lbl_danse_f.Text = g.Type_Musique.Count.ToString() + " styles de danse referencées.";
+                this.lbl_danse_f.Text = nb + " styles de danse referencées.";
 
+            // Nombre de musique avec et sans rythme
             int num1 = 0;
             int num2 = 0;
 
-            for (int index = 0; index < g.Musique_Founded.Count; ++index)
+            foreach(Danse d in g.dossier.Get_All_Danses())
             {
-
-                num1 += g.Musique_Founded[index].Count;
-
-                foreach (string music in g.Musique_Founded[index])
+                foreach(Musique m in d.Get_All_Musique())
                 {
-                    if (Find_BPM(music, g.Speed_Unit) != -1)
+                    num1++;
+                    if (m.rythme != 0)
                         num2++;
-                    
                 }
-
             }
+            
 
             // nb musique tot
 
@@ -519,49 +415,6 @@ namespace Danse_s_Playlist_Generator
             else
                 this.lbl_music_f_r.Text = num2.ToString() + " musiques avec rythme trouvées.";
 
-            
-
-            // data
-
-            this.connect.Open();
-
-            int num3 = (int)new OleDbCommand(SQL_Command.Count_Routine(), this.connect).ExecuteScalar();
-            switch (num3)
-            {
-                case 0:
-                    this.lbl_routine_f.Text = "Aucune routine de danse disponible.";
-                    break;
-                case 1:
-                    this.lbl_routine_f.Text = num3.ToString() + " routine de danse disponible.";
-                    break;
-                default:
-                    this.lbl_routine_f.Text = num3.ToString() + " routines de danse disponibles.";
-                    break;
-            }
-
-            if ((int)new OleDbCommand(SQL_Command.Count_Stats(), this.connect).ExecuteScalar() == 0)
-            {
-                new OleDbCommand(SQL_Command.Insert_Number_Playlist(), this.connect).ExecuteNonQuery();
-                this.lbl_playlist.Text = "Aucune playlist générée.";
-            }
-            else
-            {
-                int num4 = (int)new OleDbCommand(SQL_Command.Get_Number_Playlist(), this.connect).ExecuteScalar();
-                g.nombre_Generation = num4;
-                switch (num4)
-                {
-                    case 0:
-                        this.lbl_playlist.Text = "Aucune playlist générée.";
-                        break;
-                    case 1:
-                        this.lbl_playlist.Text = num4.ToString() + " playlist générée.";
-                        break;
-                    default:
-                        this.lbl_playlist.Text = num4.ToString() + " playlists générées.";
-                        break;
-                }
-            }
-            this.connect.Close();
 
 
             fen_loading_worker.UpDate_Status("Statistics loaded ...");
@@ -618,22 +471,7 @@ namespace Danse_s_Playlist_Generator
 
         private void Load_Routine()
         {
-            connect.Open();
-
-            OleDbCommand cmd = new OleDbCommand(SQL_Command.Get_Routine(),connect);
-
-            OleDbDataReader reader = cmd.ExecuteReader() ;
-
-            while (reader.Read())
-            {
-                cmb_routine.Items.Add(reader[0].ToString());
-            }
-
-            reader.Close();
-            connect.Close();
-
-            //Col_Data_Danse.DataSource = g.Type_Musique;
-            //Col_Data_Tri.DataSource = new List<string> { "Aléatoire","Croissant","Descroissant"};
+            
         }
 
         // -------------- Events -------------- //
@@ -646,27 +484,21 @@ namespace Danse_s_Playlist_Generator
 
             this.Enabled = true;
 
+            this.WindowState = FormWindowState.Minimized;
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
         }
 
         private void DoWork()
         {
-            Thread t = new Thread(new ThreadStart(fen_loading_worker.DoWork));
-            t.Start();
+            //Thread t = new Thread(new ThreadStart(fen_loading_worker.DoWork));
+            //t.Start();
             
-            fen_loading_worker.UpDate_Status("Loading : Os type ...");
-
-            Load_Os_Type();
-
-
-            fen_loading_worker.UpDate_Status("Connecting DataBase ...");
-
-            this.Open_Connection();
-
-            fen_loading_worker.UpDate_Status("Loading : Parameters ...");
+            //fen_loading_worker.UpDate_Status("Loading : Parameters ...");
 
             this.Read_Parametres();
 
-            fen_loading_worker.UpDate_Status("Loading : Musics ...");
+            //fen_loading_worker.UpDate_Status("Loading : Musics ...");
 
             if (g.repertoire != "")
                 this.Load_Files(g.repertoire);
@@ -674,13 +506,13 @@ namespace Danse_s_Playlist_Generator
                 this.Load_Stats();
 
             this.status_modif(false);
-
-            fen_loading_worker.UpDate_Status("Loading : Routines ...");
+            
+            //fen_loading_worker.UpDate_Status("Loading : Routines ...");
 
             Load_Routine();
             
-            fen_loading_worker.RequestStop();
-            t.Join();
+            //fen_loading_worker.RequestStop();
+            //t.Join();
 
         }
 
@@ -711,7 +543,7 @@ namespace Danse_s_Playlist_Generator
 
         public int Generate_music_list(int Min, int Max, string danse_file, int number)
         {
-            int return_value = 0;
+            /*int return_value = 0;
 
             int num1 = Min;
             int num2 = Max;
@@ -784,12 +616,13 @@ namespace Danse_s_Playlist_Generator
                 int num5 = (int)MessageBox.Show("Toutes les musiques de " + danse_file + " dans cette portée ont déjà été ajoutées dans la playlist.");
                 return -1;
             }
-            return return_value;
+            return return_value;*/
+            return 0;
         }
 
         public void Add_Music_to_Selection(int Min, int Max)
         {
-            if (this.listW_Danse_List.SelectedItems.Count > 0)
+           /* if (this.listW_Danse_List.SelectedItems.Count > 0)
             {
                 int num1 = Min;
                 int num2 = Max;
@@ -844,12 +677,12 @@ namespace Danse_s_Playlist_Generator
             {
                 int num = (int)MessageBox.Show("Tout les musiques de ce style et dans cette porté sont déjà dans la playlist.");
             }
-            this.Maj_Liste_Musique();
+            this.Maj_Liste_Musique();*/
         }
 
         public void Modify_Music_Selected(int Min, int Max)
         {
-            int num1 = Min;
+            /*int num1 = Min;
             int num2 = Max;
             if (num1 > num2)
             {
@@ -908,11 +741,11 @@ namespace Danse_s_Playlist_Generator
             g.Musique_playlist[index1] = stringList2;
             this.Maj_Liste_Musique();
             foreach (int index3 in intList)
-                this.list_Musiques.SetSelected(index3, true);
+                this.list_Musiques.SetSelected(index3, true);*/
         }
 
         public void Modify_All_Music(int Min, int Max)
-        {
+        {/*
             int num1 = Min;
             int num2 = Max;
             if (num1 > num2)
@@ -962,7 +795,7 @@ namespace Danse_s_Playlist_Generator
                 }
             }
             this.Maj_Liste_Musique();
-            g.Musique_playlist[index1] = stringList2;
+            g.Musique_playlist[index1] = stringList2;*/
         }
 
         public void Change_Min_Max(int Min, int Max)
@@ -975,16 +808,16 @@ namespace Danse_s_Playlist_Generator
 
         public void Maj_Liste_Musique()
         {
-            this.list_Musiques.Items.Clear();
+            /*this.list_Musiques.Items.Clear();
             if (this.listW_Danse_List.SelectedIndices.Count <= 0)
                 return;
             foreach (object obj in g.Musique_playlist[this.listW_Danse_List.SelectedIndices[0]])
-                this.list_Musiques.Items.Add(obj);
+                this.list_Musiques.Items.Add(obj);*/
         }
 
         public void Ajout_Manuel(int position, string style, List<string> Musique)
         {
-            if (position == -1)
+            /*if (position == -1)
             {
                 this.listW_Danse_List.Items.Add(new ListViewItem(new string[4]
                 {
@@ -1028,12 +861,12 @@ namespace Danse_s_Playlist_Generator
                 }
             }
             this.btn_save.Visible = true;
-            this.btn_reset.Visible = true;
+            this.btn_reset.Visible = true;*/
         }
 
         public void Add_Routine_to_Playlist(List<string> routine,int nb , TimeSpan time)
         {
-            List<OBJ_Danse> Liste_routine = new List<OBJ_Danse>();
+            /*List<OBJ_Danse> Liste_routine = new List<OBJ_Danse>();
 
             connect.Open();
 
@@ -1120,11 +953,11 @@ namespace Danse_s_Playlist_Generator
             }
 
             this.btn_save.Visible = true;
-            this.btn_reset.Visible = true;
+            this.btn_reset.Visible = true;*/
         }
 
         public void Maj_Stat_Geneation(int val)
-        {
+        {/*
             connect.Open();
 
             OleDbCommand cmd = new OleDbCommand(SQL_Command.Update_Number_Playlist(val), connect);
@@ -1134,7 +967,7 @@ namespace Danse_s_Playlist_Generator
             connect.Close();
 
             Load_Stats();
-            
+            */
         }
 
         // -------------- Events -------------- //
@@ -1182,7 +1015,7 @@ namespace Danse_s_Playlist_Generator
         }
 
         private void btn_delete_danse_Click(object sender, EventArgs e)
-        {
+        {/*
             if (this.listW_Danse_List.SelectedItems.Count == 0)
                 return;
 
@@ -1204,11 +1037,11 @@ namespace Danse_s_Playlist_Generator
             if (this.listW_Danse_List.Items.Count != 0)
                 return;
             this.btn_save.Visible = false;
-            this.btn_reset.Visible = false;
+            this.btn_reset.Visible = false;*/
         }
 
         private void btn_delete_selection_Click(object sender, EventArgs e)
-        {
+        {/*
             int index1 = this.listW_Danse_List.SelectedIndices[0];
             List<int> intList = new List<int>();
             for (int index2 = 0; index2 < this.list_Musiques.SelectedItems.Count; ++index2)
@@ -1240,11 +1073,11 @@ namespace Danse_s_Playlist_Generator
                     this.btn_save.Visible = false;
                 }
             }
-            this.Maj_Liste_Musique();
+            this.Maj_Liste_Musique();*/
         }
 
         private void btn_music_up_Click(object sender, EventArgs e)
-        {
+        {/*
             if(this.listW_Danse_List.SelectedItems.Count == 0)
                 return;
 
@@ -1282,11 +1115,11 @@ namespace Danse_s_Playlist_Generator
             listViewItem2.SubItems[3].Text = strArray1[2];
             this.listW_Danse_List.Items[index2] = listViewItem2;
             this.listW_Danse_List.Items[index2].Selected = true;
-            this.listW_Danse_List.Focus();
+            this.listW_Danse_List.Focus();*/
         }
 
         private void btn_music_down_Click(object sender, EventArgs e)
-        {
+        {/*
             if (this.listW_Danse_List.SelectedItems.Count <= 0 || this.listW_Danse_List.SelectedIndices[0] >= this.listW_Danse_List.Items.Count - 1)
                 return;
             int index1 = this.listW_Danse_List.SelectedIndices[0];
@@ -1320,11 +1153,11 @@ namespace Danse_s_Playlist_Generator
             listViewItem2.SubItems[3].Text = strArray1[2];
             this.listW_Danse_List.Items[index2] = listViewItem2;
             this.listW_Danse_List.Items[index2].Selected = true;
-            this.listW_Danse_List.Focus();
+            this.listW_Danse_List.Focus();*/
         }
 
         private void btn_selection_up_Click(object sender, EventArgs e)
-        {
+        {/*
             if (this.list_Musiques.SelectedIndex <= 0)
                 return;
             List<string> stringList = g.Musique_playlist[this.listW_Danse_List.SelectedIndices[0]];
@@ -1334,11 +1167,11 @@ namespace Danse_s_Playlist_Generator
             g.Musique_playlist[this.listW_Danse_List.SelectedIndices[0]] = stringList;
             int selectedIndex = this.list_Musiques.SelectedIndex;
             this.Maj_Liste_Musique();
-            this.list_Musiques.SelectedIndex = selectedIndex - 1;
+            this.list_Musiques.SelectedIndex = selectedIndex - 1;*/
         }
 
         private void btn_selection_down_Click(object sender, EventArgs e)
-        {
+        {/*
             if (this.list_Musiques.SelectedIndex == -1 || this.list_Musiques.SelectedIndex >= this.list_Musiques.Items.Count - 1)
                 return;
             List<string> stringList = g.Musique_playlist[this.listW_Danse_List.SelectedIndices[0]];
@@ -1348,26 +1181,26 @@ namespace Danse_s_Playlist_Generator
             g.Musique_playlist[this.listW_Danse_List.SelectedIndices[0]] = stringList;
             int selectedIndex = this.list_Musiques.SelectedIndex;
             this.Maj_Liste_Musique();
-            this.list_Musiques.SelectedIndex = selectedIndex + 1;
+            this.list_Musiques.SelectedIndex = selectedIndex + 1;*/
         }
 
         private void btn_musique_asc_Click(object sender, EventArgs e)
-        {
+        {/*
             IComparer<string> comparer = (IComparer<string>)new MusiqueComparer();
             g.Musique_playlist[this.listW_Danse_List.SelectedIndices[0]].Sort(comparer);
             g.Musique_playlist[this.listW_Danse_List.SelectedIndices[0]].Reverse();
-            this.Maj_Liste_Musique();
+            this.Maj_Liste_Musique();*/
         }
 
         private void btn_music_desc_Click(object sender, EventArgs e)
-        {
+        {/*
             IComparer<string> comparer = (IComparer<string>)new MusiqueComparer();
             g.Musique_playlist[this.listW_Danse_List.SelectedIndices[0]].Sort(comparer);
-            this.Maj_Liste_Musique();
+            this.Maj_Liste_Musique();*/
         }
 
         private void btn_Shuffle_Click(object sender, EventArgs e)
-        {
+        {/*
             if (this.listW_Danse_List.SelectedItems.Count <= 0)
                 return;
             List<string> stringList = g.Musique_playlist[this.listW_Danse_List.SelectedIndices[0]];
@@ -1375,11 +1208,11 @@ namespace Danse_s_Playlist_Generator
             this.Shuffle<string>((IList<string>)stringList);
             this.Shuffle<string>((IList<string>)stringList);
             g.Musique_playlist[this.listW_Danse_List.SelectedIndices[0]] = stringList;
-            this.Maj_Liste_Musique();
+            this.Maj_Liste_Musique();*/
         }
 
         private void btn_save_Click(object sender, EventArgs e)
-        {
+        {/*
             if (this.listW_Danse_List.Items.Count <= 0)
                 return;
             g.text = "#EXTM3U\n";
@@ -1435,11 +1268,11 @@ namespace Danse_s_Playlist_Generator
                         Maj_Stat_Geneation(++g.nombre_Generation);
                     }
                     break;
-            }
+            }*/
         }
 
         private void btn_reset_Click(object sender, EventArgs e)
-        {
+        {/*
             if (MessageBox.Show("Etes-vous sure de vouloir supprimer la playlist ?", "Confirmation", MessageBoxButtons.YesNo) != DialogResult.Yes)
                 return;
             this.listW_Danse_List.Items.Clear();
@@ -1447,7 +1280,7 @@ namespace Danse_s_Playlist_Generator
             g.Musique_playlist.Clear();
             g.Musique_Added.Clear();
             this.btn_reset.Visible = false;
-            this.btn_save.Visible = false;
+            this.btn_save.Visible = false;*/
         }
 
         private void Nup_Min_ValueChanged(object sender, EventArgs e)
@@ -1538,15 +1371,15 @@ namespace Danse_s_Playlist_Generator
         }
 
         private void btn_selection_manuelle_Click(object sender, EventArgs e)
-        {
+        {/*
             List<string> List_Danse = new List<string>();
             for (int index = 0; index < this.listW_Danse_List.Items.Count; ++index)
                 List_Danse.Add(this.listW_Danse_List.Items[index].SubItems[1].Text);
-            int num = (int)new Selection_Manuelle(this, g.Type_Musique, g.Musique_Founded, 1, List_Danse).ShowDialog();
+            int num = (int)new Selection_Manuelle(this, g.Type_Musique, g.Musique_Founded, 1, List_Danse).ShowDialog();*/
         }
 
         private void btn_load_rout_Click(object sender, EventArgs e)
-        {
+        {/*
             
             List<string> routine = new List<string>();
             connect.Open();
@@ -1564,12 +1397,12 @@ namespace Danse_s_Playlist_Generator
             connect.Close();
 
             Routine_Loader fen = new Routine_Loader(this,routine);
-            fen.ShowDialog();
+            fen.ShowDialog();*/
 
         }
 
         private void pic_Apperçu_Click(object sender, EventArgs e)
-        {
+        {/*
             if(this.listW_Danse_List.Items.Count > 0)
             {
                 string text = g.Playlist_Length.Hours + " H " + g.Playlist_Length.Minutes + " M " + g.Playlist_Length.Seconds + " S \n";
@@ -1584,7 +1417,7 @@ namespace Danse_s_Playlist_Generator
 
                 Apperçu fen = new Apperçu(text, false);
                 fen.ShowDialog();
-            }
+            }*/
             
         }
 
@@ -1609,7 +1442,7 @@ namespace Danse_s_Playlist_Generator
         }
 
         public void Load_Routine_Data(string name)
-        {
+        {/*
             Musique_Manuelle_Routine.Clear();
 
             connect.Open();
@@ -1662,11 +1495,11 @@ namespace Danse_s_Playlist_Generator
 
             reader.Close();
             
-            connect.Close();
+            connect.Close();*/
         }
 
         public int Save_Routine()
-        {
+        {/*
             connect.Open();
 
             OleDbCommand cmd;
@@ -1789,7 +1622,8 @@ namespace Danse_s_Playlist_Generator
 
             MessageBox.Show("Routine enregistré.");
 
-            return 1;
+            return 1;*/
+            return 0;
         }
 
         public void afficher_modif_rout(bool b)
@@ -1834,9 +1668,9 @@ namespace Danse_s_Playlist_Generator
         }
 
         private void button3_Click(object sender, EventArgs e) // selection manuelle
-        {
+        {/*
             Selection_Manuelle fen = new Selection_Manuelle(this, g.Type_Musique, g.Musique_Founded, 2, null);
-            fen.ShowDialog();
+            fen.ShowDialog();*/
         }
 
         private void btn_Danse_Up_r_Click(object sender, EventArgs e)
@@ -2081,7 +1915,7 @@ namespace Danse_s_Playlist_Generator
         }
 
         private void btn_Suppr_Routine_Click(object sender, EventArgs e)
-        {
+        {/*
             connect.Open();
             switch (MessageBox.Show("Etes-vous sure de vouloir supprimer la routine : " + routine_name + " ?", "", MessageBoxButtons.YesNo))
             {
@@ -2112,7 +1946,7 @@ namespace Danse_s_Playlist_Generator
 
             dataGridView_Routine.Rows.Clear();
             
-            Load_Stats();
+            Load_Stats();*/
 
         }
 
@@ -2128,7 +1962,7 @@ namespace Danse_s_Playlist_Generator
                 str = "BPM";
             else if (this.rdb_mpm.Checked)
                 str = "MPM";
-            using (StreamWriter streamWriter = new StreamWriter("." + g.sep.ToString() + "Application.config", false))
+            using (StreamWriter streamWriter = new StreamWriter("." + Path.DirectorySeparatorChar + "Application.config", false))
             {
                 streamWriter.WriteLine("Path=" + this.txt_Rep_Recherche2.Text);
                 streamWriter.WriteLine("Sep=" + ch.ToString());
@@ -2144,7 +1978,8 @@ namespace Danse_s_Playlist_Generator
                 str = "BPM";
             else if (this.rdb_mpm.Checked)
                 str = "MPM";
-            using (StreamWriter streamWriter = new StreamWriter("." + g.sep.ToString() + "Application.config", false))
+            File.Create("." + Path.DirectorySeparatorChar + "Application.config");
+            using (StreamWriter streamWriter = new StreamWriter("." + Path.DirectorySeparatorChar + "Application.config", false))
             {
                 streamWriter.WriteLine("Path=" + file);
                 streamWriter.WriteLine("Sep=" + ch.ToString());

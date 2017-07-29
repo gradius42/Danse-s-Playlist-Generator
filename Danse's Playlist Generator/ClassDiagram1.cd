@@ -1,2 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Danse_s_Playlist_Generator.Musique">
+    <Position X="4.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAEAAAAAAAAAAAYAAAAAAAAAAABAAAAAAAAAE=</HashCode>
+      <FileName>Musique.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Danse_s_Playlist_Generator.Danse">
+    <Position X="2.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAEAQAAAAAAEAAAAIAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Danse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Danse_s_Playlist_Generator.Dossier">
+    <Position X="0.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAIAAAAAAAUACAAAAAAAABAAAAA=</HashCode>
+      <FileName>Dossier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Danse_s_Playlist_Generator.Playlist">
+    <Position X="6.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAABQAAAEAAAgJAAIAAASAAAAAACAAAAAIAAAgA=</HashCode>
+      <FileName>Playlist.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Danse_s_Playlist_Generator.PlaylistPart">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAUAAEAAIAAAgAAAAQAAAAABAAAAgAEAA=</HashCode>
+      <FileName>PlaylistPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
